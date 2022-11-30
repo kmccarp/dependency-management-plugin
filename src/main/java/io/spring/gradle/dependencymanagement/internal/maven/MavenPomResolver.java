@@ -155,7 +155,7 @@ public class MavenPomResolver implements PomResolver {
 		Set<Exclusion> exclusions = new LinkedHashSet<>();
 		if (dependency.getExclusions() != null) {
 			dependency.getExclusions().stream()
-					.map((exclusion) -> new Exclusion(exclusion.getGroupId(), exclusion.getArtifactId()))
+					.map(exclusion -> new Exclusion(exclusion.getGroupId(), exclusion.getArtifactId()))
 					.forEach(exclusions::add);
 		}
 		Coordinates coordinates = new Coordinates(dependency.getGroupId(), dependency.getArtifactId(),

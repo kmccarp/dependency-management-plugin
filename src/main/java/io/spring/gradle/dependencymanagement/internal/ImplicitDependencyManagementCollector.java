@@ -56,7 +56,7 @@ public class ImplicitDependencyManagementCollector implements Action<Configurati
 
 	@Override
 	public void execute(Configuration root) {
-		root.getIncoming().beforeResolve((resolvableDependencies) -> {
+		root.getIncoming().beforeResolve(resolvableDependencies -> {
 			if (this.dependencyManagementSettings.isOverriddenByDependencies()) {
 				root.getHierarchy().forEach(this::processConfiguration);
 			}

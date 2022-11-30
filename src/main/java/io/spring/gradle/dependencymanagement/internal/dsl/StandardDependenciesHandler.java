@@ -135,7 +135,7 @@ class StandardDependenciesHandler implements DependenciesHandler {
 	}
 
 	private void configureDependencySet(String group, String version, Action<DependencySetHandler> action) {
-		action.execute(new StandardDependencySetHandler(group.toString(), version.toString(), this.container,
+		action.execute(new StandardDependencySetHandler(group, version, this.container,
 				this.configuration));
 	}
 

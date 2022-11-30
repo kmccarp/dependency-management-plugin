@@ -99,7 +99,7 @@ class ExclusionConfiguringAction implements Action<ResolvableDependencies> {
 		ResolutionResult resolutionResult = copyConfiguration().getIncoming().getResolutionResult();
 		ResolvedComponentResult root = resolutionResult.getRoot();
 		Set<DependencyCandidate> excludedDependencies = new HashSet<>();
-		resolutionResult.allDependencies((dependencyResult) -> {
+		resolutionResult.allDependencies(dependencyResult -> {
 			if (dependencyResult instanceof ResolvedDependencyResult) {
 				ResolvedDependencyResult resolved = (ResolvedDependencyResult) dependencyResult;
 				excludedDependencies.add(new DependencyCandidate(resolved.getSelected().getModuleVersion()));
@@ -225,7 +225,7 @@ class ExclusionConfiguringAction implements Action<ResolvableDependencies> {
 		}
 
 		private boolean matches(String candidate, String exclusion) {
-			return exclusion.equals("*") || exclusion.equals(candidate);
+			return "*".equals(exclusion) || exclusion.equals(candidate);
 		}
 
 	}

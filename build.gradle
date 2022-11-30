@@ -173,7 +173,7 @@ publishing {
 				}
 			}
 		}
-		if (name == "pluginMaven") {
+		if ("pluginMaven".equals(name)) {
 			artifact tasks.named("docsZip")
 		}
 

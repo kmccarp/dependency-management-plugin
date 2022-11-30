@@ -48,18 +48,18 @@ public class DependencyManagementPlugin implements Plugin<Project> {
 			DependencyManagementExtension dependencyManagementExtension) {
 		PomDependencyManagementConfigurer pomConfigurer = dependencyManagementExtension.getPomConfigurer();
 		project.getPlugins().withType(MavenPublishPlugin.class,
-				(mavenPublishPlugin) -> configurePublishingExtension(project, pomConfigurer));
+				mavenPublishPlugin -> configurePublishingExtension(project, pomConfigurer));
 	}
 
 	private void configurePublishingExtension(Project project, PomDependencyManagementConfigurer extension) {
 		project.getExtensions().configure(PublishingExtension.class,
-				(publishingExtension) -> configurePublications(publishingExtension, extension));
+				publishingExtension -> configurePublications(publishingExtension, extension));
 	}
 
 	private void configurePublications(PublishingExtension publishingExtension,
 			PomDependencyManagementConfigurer extension) {
 		publishingExtension.getPublications().withType(MavenPublication.class,
-				(mavenPublication) -> mavenPublication.getPom().withXml(extension));
+				mavenPublication -> mavenPublication.getPom().withXml(extension));
 	}
 
 }

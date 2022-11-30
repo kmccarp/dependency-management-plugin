@@ -75,7 +75,7 @@ class StandardPomDependencyManagementConfigurerTests {
 	@Test
 	void multipleImportsAreImportedInTheOppositeOrderToWhichTheyWereImported() throws Exception {
 		this.project.getRepositories()
-				.maven((repository) -> repository.setUrl(new File("src/test/resources/maven-repo").getAbsoluteFile()));
+				.maven(repository -> repository.setUrl(new File("src/test/resources/maven-repo").getAbsoluteFile()));
 		this.dependencyManagement.importBom(null, new Coordinates("test", "bravo-pom-customization-bom", "1.0"),
 				new MapPropertySource(Collections.emptyMap()));
 		this.dependencyManagement.importBom(null, new Coordinates("test", "alpha-pom-customization-bom", "1.0"),
@@ -224,7 +224,7 @@ class StandardPomDependencyManagementConfigurerTests {
 	void whenAnImportedBomOverridesDependencyManagementFromAnotherImportedBomAnExplicitOverrideIsNotAdded()
 			throws Exception {
 		this.project.getRepositories()
-				.maven((repository) -> repository.setUrl(new File("src/test/resources/maven-repo").getAbsoluteFile()));
+				.maven(repository -> repository.setUrl(new File("src/test/resources/maven-repo").getAbsoluteFile()));
 		this.dependencyManagement.importBom(null, new Coordinates("test", "first-alpha-dependency-management", "1.0"),
 				new MapPropertySource(Collections.emptyMap()));
 		this.dependencyManagement.importBom(null, new Coordinates("test", "second-alpha-dependency-management", "1.0"),

@@ -53,7 +53,7 @@ final class StandardDependencySetHandler implements DependencySetHandler {
 
 	@Override
 	public void entry(String name, Closure<?> closure) {
-		entry(name, (dependencyHandler) -> {
+		entry(name, dependencyHandler -> {
 			if (closure != null) {
 				closure.setDelegate(dependencyHandler);
 				closure.call();

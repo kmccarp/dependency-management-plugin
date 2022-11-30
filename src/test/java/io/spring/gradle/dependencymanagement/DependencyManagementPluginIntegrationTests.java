@@ -303,7 +303,7 @@ class DependencyManagementPluginIntegrationTests {
 	@Test
 	void exclusionsAreAppliedCorrectlyToDependenciesThatAreReferencedMultipleTimes() {
 		this.gradleBuild.runner().withArguments("resolve").build();
-		assertThat(readLines("resolved.txt")).noneMatch((line) -> line.startsWith("groovy-all"));
+		assertThat(readLines("resolved.txt")).noneMatch(line -> line.startsWith("groovy-all"));
 	}
 
 	@Test // gh-33
@@ -358,7 +358,7 @@ class DependencyManagementPluginIntegrationTests {
 	void dynamicVersionIsNotAddedToDependencyManagement() {
 		this.gradleBuild.runner().withArguments("managedVersions").build();
 		assertThat(readLines("managed-versions.txt"))
-				.noneMatch((line) -> line.startsWith("commons-logging:commons-logging ->"));
+				.noneMatch(line -> line.startsWith("commons-logging:commons-logging ->"));
 	}
 
 	@Test

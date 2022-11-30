@@ -114,7 +114,7 @@ class StandardDependenciesHandlerTests {
 	void anExclusionUsingAStringInTheWrongFormatIsRejected() {
 		try {
 			this.handler.dependency("com.example:example:1.0",
-					(dependencyHandler) -> dependencyHandler.exclude("malformed"));
+					dependencyHandler -> dependencyHandler.exclude("malformed"));
 			fail("Exception was not thrown");
 		}
 		catch (Exception ex) {
@@ -126,7 +126,7 @@ class StandardDependenciesHandlerTests {
 	@Test
 	void anExclusionConfiguredUsingAMapWithoutANameIsRejected() {
 		try {
-			this.handler.dependency("com.example:example:1.0", (dependencyHandler) -> {
+			this.handler.dependency("com.example:example:1.0", dependencyHandler -> {
 				Map<String, String> exclusion = new HashMap<>();
 				exclusion.put("group", "com.example");
 				dependencyHandler.exclude(exclusion);
@@ -141,7 +141,7 @@ class StandardDependenciesHandlerTests {
 	@Test
 	void anExclusionConfiguredUsingAMapWithoutAGroupIsRejected() {
 		try {
-			this.handler.dependency("com.example:example:1.0", (dependencyHandler) -> {
+			this.handler.dependency("com.example:example:1.0", dependencyHandler -> {
 				Map<String, String> exclusion = new HashMap<>();
 				exclusion.put("name", "example-core");
 				dependencyHandler.exclude(exclusion);

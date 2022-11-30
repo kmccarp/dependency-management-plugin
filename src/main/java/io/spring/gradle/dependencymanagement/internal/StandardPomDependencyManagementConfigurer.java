@@ -42,7 +42,7 @@ import org.gradle.api.XmlProvider;
  */
 public class StandardPomDependencyManagementConfigurer implements PomDependencyManagementConfigurer {
 
-	private static final PropertySource EMPTY_PROPERTY_SOURCE = (name) -> null;
+	private static final PropertySource EMPTY_PROPERTY_SOURCE = name -> null;
 
 	private static final String NODE_NAME_DEPENDENCY_MANAGEMENT = "dependencyManagement";
 

@@ -45,7 +45,7 @@ import org.junit.jupiter.api.extension.ExtensionContext.Store.CloseableResource;
  */
 public class GradleBuild implements BeforeEachCallback {
 
-	private GradleRunner runner = null;
+	private GradleRunner runner;
 
 	@Override
 	public void beforeEach(ExtensionContext context) throws Exception {

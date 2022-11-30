@@ -42,22 +42,22 @@ class CompoundDependencyManagementConfigurer implements DependencyManagementConf
 
 	@Override
 	public void imports(Closure<?> closure) {
-		doWithDelegates((delegate) -> delegate.imports(closure));
+		doWithDelegates(delegate -> delegate.imports(closure));
 	}
 
 	@Override
 	public void imports(Action<ImportsHandler> action) {
-		doWithDelegates((delegate) -> delegate.imports(action));
+		doWithDelegates(delegate -> delegate.imports(action));
 	}
 
 	@Override
 	public void dependencies(Closure<?> closure) {
-		doWithDelegates((delegate) -> delegate.dependencies(closure));
+		doWithDelegates(delegate -> delegate.dependencies(closure));
 	}
 
 	@Override
 	public void dependencies(Action<DependenciesHandler> action) {
-		doWithDelegates((delegate) -> delegate.dependencies(action));
+		doWithDelegates(delegate -> delegate.dependencies(action));
 	}
 
 	private void doWithDelegates(Consumer<DependencyManagementConfigurer> delegate) {

@@ -123,7 +123,7 @@ public class StandardDependencyManagementExtension extends GroovyObjectSupport
 
 	@Override
 	public void resolutionStrategy(Action<ResolutionStrategy> action) {
-		this.configurationContainer.apply((configuration) -> action.execute(configuration.getResolutionStrategy()));
+		this.configurationContainer.apply(configuration -> action.execute(configuration.getResolutionStrategy()));
 	}
 
 	@Override

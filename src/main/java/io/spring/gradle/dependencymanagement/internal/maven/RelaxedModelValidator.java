@@ -33,13 +33,13 @@ class RelaxedModelValidator extends DefaultModelValidator {
 	@Override
 	public void validateRawModel(Model model, ModelBuildingRequest request, ModelProblemCollector problems) {
 		withNoDistributionManagementStatus(model,
-				(modifiedModel) -> RelaxedModelValidator.super.validateRawModel(modifiedModel, request, problems));
+				modifiedModel -> RelaxedModelValidator.super.validateRawModel(modifiedModel, request, problems));
 	}
 
 	@Override
 	public void validateEffectiveModel(Model model, ModelBuildingRequest request, ModelProblemCollector problems) {
 		withNoDistributionManagementStatus(model,
-				(modifiedModel) -> RelaxedModelValidator.super.validateEffectiveModel(modifiedModel, request,
+				modifiedModel -> RelaxedModelValidator.super.validateEffectiveModel(modifiedModel, request,
 						problems));
 	}
 
